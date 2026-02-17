@@ -1,0 +1,40 @@
+﻿<Page
+    x:Class="WpfApp1.Pages.PinsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Controls="clr-namespace:WpfApp1.Controls"
+    xmlns:adonisUi="clr-namespace:AdonisUI;assembly=AdonisUI"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WpfApp1.Pages"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="PinsPage"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    TextBlock.Foreground="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}"
+    mc:Ignorable="d">
+
+    <Grid Background="{DynamicResource {x:Static adonisUi:Brushes.Layer0BackgroundBrush}}">
+        <ScrollViewer>
+            <StackPanel>
+                <Controls:WrapGrid x:Name="wrapgrid" Margin="10" />
+                <Border Height="200" />
+            </StackPanel>
+        </ScrollViewer>
+        <StackPanel
+            x:Name="nopins"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            TextBlock.Foreground="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}">
+            <TextBlock
+                Margin="0,0,0,10"
+                HorizontalAlignment="Center"
+                FontFamily="{StaticResource SFPro}"
+                FontSize="30"
+                Text="􀆪" />
+            <TextBlock
+                FontFamily="{StaticResource NewYork}"
+                FontSize="20"
+                Text="Nothing" />
+        </StackPanel>
+    </Grid>
+</Page>
