@@ -1,0 +1,325 @@
+﻿<Page
+    x:Class="WpfApp1.Pages.NewPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Controls="clr-namespace:WpfApp1.Controls"
+    xmlns:adonisControls="clr-namespace:AdonisUI.Controls;assembly=AdonisUI"
+    xmlns:adonisUi="clr-namespace:AdonisUI;assembly=AdonisUI"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WpfApp1.Pages"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="NewPage"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <Storyboard x:Key="Search_PanelOpen">
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetName="_opensearchpanel" Storyboard.TargetProperty="(FrameworkElement.Margin)">
+                <EasingThicknessKeyFrame KeyTime="00:00:00" Value="8,10,8,10" />
+                <EasingThicknessKeyFrame KeyTime="00:00:00.3000000" Value="100,10,100,10">
+                    <EasingThicknessKeyFrame.EasingFunction>
+                        <CircleEase EasingMode="EaseIn" />
+                    </EasingThicknessKeyFrame.EasingFunction>
+                </EasingThicknessKeyFrame>
+                <DiscreteThicknessKeyFrame KeyTime="00:00:00.3100000" Value="0,10,10,10" />
+                <EasingThicknessKeyFrame KeyTime="00:00:00.6000000" Value="0,10,10,10" />
+            </ThicknessAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="_opensearchpanel" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="1" />
+                <EasingDoubleKeyFrame KeyTime="00:00:00.3000000" Value="0" />
+                <EasingDoubleKeyFrame KeyTime="00:00:00.6000000" Value="1" />
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="_searchbox" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0" />
+                <EasingDoubleKeyFrame KeyTime="00:00:00.2000000" Value="0" />
+                <EasingDoubleKeyFrame KeyTime="00:00:00.5000000" Value="1" />
+                <EasingDoubleKeyFrame KeyTime="00:00:00.6000000" Value="1" />
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="_searchbox" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}" />
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.2000000" Value="{x:Static Visibility.Visible}" />
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.5000000" Value="{x:Static Visibility.Visible}" />
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.6000000" Value="{x:Static Visibility.Visible}" />
+            </ObjectAnimationUsingKeyFrames>
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetName="_searchbox" Storyboard.TargetProperty="(FrameworkElement.Margin)">
+                <EasingThicknessKeyFrame KeyTime="00:00:00" Value="10,10,86,10" />
+                <EasingThicknessKeyFrame KeyTime="00:00:00.2000000" Value="50,10,50,10" />
+                <EasingThicknessKeyFrame KeyTime="00:00:00.5000000" Value="70,10,86,10">
+                    <EasingThicknessKeyFrame.EasingFunction>
+                        <CircleEase EasingMode="EaseOut" />
+                    </EasingThicknessKeyFrame.EasingFunction>
+                </EasingThicknessKeyFrame>
+                <EasingThicknessKeyFrame KeyTime="00:00:00.6000000" Value="70,10,86,10" />
+            </ThicknessAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="_backbtn" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}" />
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.3000000" Value="{x:Static Visibility.Visible}" />
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="_backbtn" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00.3000000" Value="0" />
+                <EasingDoubleKeyFrame KeyTime="00:00:00.6000000" Value="1" />
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="_opensearchpanel" Storyboard.TargetProperty="(FrameworkElement.HorizontalAlignment)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static HorizontalAlignment.Stretch}" />
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.3000000" Value="{x:Static HorizontalAlignment.Right}" />
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.3100000" Value="{x:Static HorizontalAlignment.Right}" />
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.6000000" Value="{x:Static HorizontalAlignment.Right}" />
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="_searchicon" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}" />
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.3000000" Value="{x:Static Visibility.Visible}" />
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.6000000" Value="{x:Static Visibility.Visible}" />
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="_searchicon" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00.3000000" Value="0" />
+                <EasingDoubleKeyFrame KeyTime="00:00:00.6000000" Value="1" />
+            </DoubleAnimationUsingKeyFrames>
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetName="_searchicon" Storyboard.TargetProperty="(FrameworkElement.Margin)">
+                <EasingThicknessKeyFrame KeyTime="00:00:00" Value="76,0,0,0" />
+                <EasingThicknessKeyFrame KeyTime="00:00:00.3000000" Value="48,0,0,0" />
+                <EasingThicknessKeyFrame KeyTime="00:00:00.6000000" Value="76,0,0,0">
+                    <EasingThicknessKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut" />
+                    </EasingThicknessKeyFrame.EasingFunction>
+                </EasingThicknessKeyFrame>
+            </ThicknessAnimationUsingKeyFrames>
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetName="discoverPanel" Storyboard.TargetProperty="(FrameworkElement.Margin)">
+                <EasingThicknessKeyFrame KeyTime="00:00:00" Value="0,40,0,0" />
+                <EasingThicknessKeyFrame KeyTime="00:00:00.3000000" Value="0,0,0,0" />
+                <EasingThicknessKeyFrame KeyTime="00:00:00.6000000" Value="0,0,0,0" />
+            </ThicknessAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="discoverPanel" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="1" />
+                <EasingDoubleKeyFrame KeyTime="00:00:00.3000000" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuarticEase EasingMode="EaseOut" />
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.6000000" Value="0" />
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="discoverPanel" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}" />
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.3000000" Value="{x:Static Visibility.Collapsed}" />
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.6000000" Value="{x:Static Visibility.Collapsed}" />
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="searchPanel" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0" />
+                <EasingDoubleKeyFrame KeyTime="00:00:00.3000000" Value="0" />
+                <EasingDoubleKeyFrame KeyTime="00:00:00.6000000" Value="1" />
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="searchPanel" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}" />
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.3000000" Value="{x:Static Visibility.Visible}" />
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.6000000" Value="{x:Static Visibility.Visible}" />
+            </ObjectAnimationUsingKeyFrames>
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetName="searchPanel" Storyboard.TargetProperty="(FrameworkElement.Margin)">
+                <EasingThicknessKeyFrame KeyTime="00:00:00" Value="0,0,0,0" />
+                <EasingThicknessKeyFrame KeyTime="00:00:00.3000000" Value="0,0,0,0" />
+                <EasingThicknessKeyFrame KeyTime="00:00:00.6000000" Value="0,40,0,0">
+                    <EasingThicknessKeyFrame.EasingFunction>
+                        <QuarticEase EasingMode="EaseOut" />
+                    </EasingThicknessKeyFrame.EasingFunction>
+                </EasingThicknessKeyFrame>
+            </ThicknessAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="Search_PanelClose">
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetName="_opensearchpanel" Storyboard.TargetProperty="(FrameworkElement.Margin)">
+                <SplineThicknessKeyFrame KeyTime="00:00:00.3000000" Value="8,10,8,10" />
+            </ThicknessAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="_opensearchpanel" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="1" />
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="_searchbox" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="0" />
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="_searchbox" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.3000000" Value="{x:Static Visibility.Collapsed}" />
+            </ObjectAnimationUsingKeyFrames>
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetName="_searchbox" Storyboard.TargetProperty="(FrameworkElement.Margin)">
+                <SplineThicknessKeyFrame KeyTime="00:00:00.3000000" Value="10,10,86,10" />
+            </ThicknessAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="_backbtn" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.3000000" Value="{x:Static Visibility.Collapsed}" />
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="_backbtn" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="0" />
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="_opensearchpanel" Storyboard.TargetProperty="(FrameworkElement.HorizontalAlignment)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.3000000" Value="{x:Static HorizontalAlignment.Stretch}" />
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="_searchicon" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.3000000" Value="{x:Static Visibility.Collapsed}" />
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="_searchicon" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="0" />
+            </DoubleAnimationUsingKeyFrames>
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetName="_searchicon" Storyboard.TargetProperty="(FrameworkElement.Margin)">
+                <SplineThicknessKeyFrame KeyTime="00:00:00.3000000" Value="76,0,0,0" />
+            </ThicknessAnimationUsingKeyFrames>
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetName="discoverPanel" Storyboard.TargetProperty="(FrameworkElement.Margin)">
+                <SplineThicknessKeyFrame KeyTime="00:00:00.3000000" Value="0,40,0,0" />
+            </ThicknessAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="discoverPanel" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="1" />
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="discoverPanel" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.3000000" Value="{x:Static Visibility.Visible}" />
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="searchPanel" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="0" />
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="searchPanel" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.3000000" Value="{x:Static Visibility.Collapsed}" />
+            </ObjectAnimationUsingKeyFrames>
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetName="searchPanel" Storyboard.TargetProperty="(FrameworkElement.Margin)">
+                <SplineThicknessKeyFrame KeyTime="00:00:00.3000000" Value="0,0,0,0" />
+            </ThicknessAnimationUsingKeyFrames>
+        </Storyboard>
+    </Page.Resources>
+
+    <Grid TextBlock.Foreground="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}">
+        <Grid
+            Height="48"
+            Margin="10,0"
+            VerticalAlignment="Top">
+
+            <TextBox
+                x:Name="_searchbox"
+                Margin="10,10,86,10"
+                Padding="26,6,10,6"
+                KeyUp="_searchbox_KeyUp"
+                Opacity="0"
+                Text=""
+                Visibility="Collapsed" />
+            <TextBlock
+                x:Name="_searchicon"
+                Margin="76,0,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                FontFamily="{StaticResource SFPro}"
+                Opacity="0"
+                Text="􀊫"
+                Visibility="Collapsed" />
+            <Button
+                x:Name="_opensearchpanel"
+                Margin="8,10"
+                HorizontalAlignment="Stretch"
+                Click="_opensearchpanel_Click"
+                Content="􀊫  Search"
+                FontFamily="{StaticResource SFPro}" />
+            <Button
+                x:Name="_backbtn"
+                Margin="8,10"
+                HorizontalAlignment="Left"
+                Click="_backbtn_Click"
+                Content="􀆉  Back"
+                FontFamily="{StaticResource SFPro}"
+                Opacity="0"
+                Visibility="Collapsed" />
+        </Grid>
+        <ScrollViewer x:Name="discoverPanel" Margin="0,40,0,0">
+            <Grid>
+                <StackPanel>
+                    <Grid>
+                        <TextBlock
+                            Margin="12,0,0,0"
+                            FontFamily="{StaticResource NewYork}"
+                            FontSize="24"
+                            Text="Top 10 stations" />
+                        <ComboBox
+                            x:Name="topsortby"
+                            Margin="0,0,12,0"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            SelectedIndex="0"
+                            SelectionChanged="topsortby_SelectionChanged"
+                            TextBlock.FontFamily="{StaticResource SFPro}">
+                            <ComboBoxItem Content="􀬁   by clicks" />
+                            <ComboBoxItem Content="􀋂   by votes" />
+                            <ComboBoxItem Content="􀋭   by recent click" />
+                            <ComboBoxItem Content="􀈐   by recently changed" />
+                            <ComboBoxItem Content="􀙈   Broken stations" />
+                        </ComboBox>
+                    </Grid>
+                    <Controls:WrapGrid x:Name="wrapgrid" Margin="10" />
+                    <Border Height="200" />
+                </StackPanel>
+                <Border x:Name="discoverLoading">
+                    <ContentControl
+                        Grid.Row="4"
+                        Grid.Column="0"
+                        Width="32"
+                        Height="24"
+                        ContentTemplate="{DynamicResource {x:Static adonisUi:Templates.LoadingDots}}"
+                        Focusable="False"
+                        Foreground="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}"
+                        Visibility="Collapsed" />
+                </Border>
+            </Grid>
+        </ScrollViewer>
+        <ScrollViewer
+            x:Name="searchPanel"
+            Margin="0,0,0,0"
+            d:Opacity="1"
+            d:Visibility="Visible"
+            Opacity="0"
+            Visibility="Collapsed" d:IsHidden="True">
+            <Grid>
+                <StackPanel>
+                    <Grid>
+                        <TextBlock
+                            x:Name="_searchpaneltitle"
+                            Margin="12,0,0,0"
+                            FontFamily="{StaticResource NewYork}"
+                            FontSize="24"
+                            Text="Result" />
+                        <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                            <ComboBox
+                                x:Name="_orderby"
+                                Height="22"
+                                Margin="0,0,8,0"
+                                VerticalAlignment="Center"
+                                SelectedIndex="0"
+                                SelectionChanged="_orderby_SelectionChanged"
+                                TextBlock.FontFamily="{StaticResource SFPro}" />
+                            <adonisControls:SplitButton
+                                x:Name="_setfilter"
+                                Margin="0,0,12,0"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                Click="_setfilter_Click"
+                                Content="􀌈   Filter"
+                                TextBlock.FontFamily="{StaticResource SFPro}">
+                                <adonisControls:SplitButton.SplitMenu>
+                                    <ContextMenu>
+                                        <MenuItem
+                                            x:Name="_msetfilter"
+                                            Click="_setfilter_Click"
+                                            Header="Set Filter" />
+                                        <MenuItem
+                                            x:Name="_mclearfilter"
+                                            Click="_mclearfilter_Click"
+                                            Header="Clear" />
+                                    </ContextMenu>
+                                </adonisControls:SplitButton.SplitMenu>
+                            </adonisControls:SplitButton>
+                        </StackPanel>
+                    </Grid>
+                    <Controls:WrapGrid x:Name="searchwrapgrid" Margin="10" />
+                    <Border Height="200" />
+                </StackPanel>
+                <Border x:Name="searchLoading">
+                    <ContentControl
+                        Grid.Row="4"
+                        Grid.Column="0"
+                        Width="32"
+                        Height="24"
+                        ContentTemplate="{DynamicResource {x:Static adonisUi:Templates.LoadingDots}}"
+                        Focusable="False"
+                        Foreground="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}"
+                        Visibility="Collapsed" />
+                </Border>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</Page>

@@ -1,0 +1,56 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>WebRadio.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="res\font\NewYorkLarge-Regular.otf" />
+    <None Remove="res\font\SF-Pro-Display-Regular.otf" />
+    <None Remove="res\img\RBW.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="WebRadio.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AdonisUI" Version="1.17.1" />
+    <PackageReference Include="AdonisUI.ClassicTheme" Version="1.17.1" />
+    <PackageReference Include="QRCoder" Version="1.7.0" />
+    <PackageReference Include="QRCoder.Xaml" Version="1.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OnlineRadio.Core\OnlineRadio.Core.csproj" />
+    <ProjectReference Include="..\RadioBrowserWrapper\RadioBrowserWrapper.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="res\font\NewYorkLarge-Regular.otf" />
+    <Resource Include="res\font\SF-Pro-Display-Regular.otf" />
+    <Resource Include="res\img\RBW.png" />
+    <Resource Include="res\img\WebRadio.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="WSettings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>WSettings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="WSettings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>WSettings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+</Project>

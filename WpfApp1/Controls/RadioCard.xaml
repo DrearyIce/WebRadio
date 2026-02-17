@@ -1,0 +1,92 @@
+﻿<models:AutoWrapUserControl
+    x:Class="WpfApp1.Controls.RadioCard"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:adonisControl="clr-namespace:AdonisUI.Controls;assembly=AdonisUI"
+    xmlns:adonisUi="clr-namespace:AdonisUI;assembly=AdonisUI"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WpfApp1.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="clr-namespace:WpfApp1.Models"
+    Height="120"
+    MinWidth="320"
+    d:DesignWidth="300"
+    d:Width="300"
+    mc:Ignorable="d">
+    <Grid Margin="8">
+        <Grid
+            x:Name="RadioSimpleInfo"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="102" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Border
+                Grid.ColumnSpan="2"
+                Background="{DynamicResource {x:Static adonisUi:Brushes.Layer1BackgroundBrush}}"
+                BorderBrush="{DynamicResource {x:Static adonisUi:Brushes.Layer1BorderBrush}}"
+                BorderThickness="2" />
+            <Grid Margin="2,2,0,2" Background="{DynamicResource {x:Static adonisUi:Brushes.Layer2BackgroundBrush}}">
+                <Grid>
+                    <TextBlock
+                        x:Name="nofavicon"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontFamily="{StaticResource SFPro}"
+                        FontSize="60"
+                        Foreground="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}"
+                        Opacity="0.2"
+                        Text="􀑈" />
+                    <Image
+                        x:Name="favicon"
+                        Source="{Binding station.Favicon, RelativeSource={RelativeSource AncestorType=local:RadioCard}}"
+                        Stretch="UniformToFill" />
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Column="1" Margin="10,5,5,5">
+                <StackPanel VerticalAlignment="Center">
+                    <TextBlock
+                        x:Name="sname"
+                        FontFamily="{StaticResource NewYork}"
+                        FontSize="20"
+                        Foreground="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}"
+                        Text="NAME"
+                        TextTrimming="CharacterEllipsis" />
+                    <Border Height="5" />
+                    <TextBlock
+                        x:Name="surl"
+                        Foreground="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}"
+                        Opacity="0.7"
+                        Text="URL"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="NoWrap" />
+                    <Border Height="5" />
+                    <TextBlock
+                        x:Name="stags"
+                        Foreground="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}"
+                        Opacity="0.7"
+                        Text="TAGS"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="NoWrap" />
+                </StackPanel>
+            </Grid>
+        </Grid>
+
+        <adonisControl:RippleHost Cursor="Hand" MouseDown="RippleHost_MouseDown">
+            <Border Background="{DynamicResource {x:Static adonisUi:Brushes.Layer2BackgroundBrush}}" Opacity="0.5" />
+        </adonisControl:RippleHost>
+
+        <Button
+            x:Name="DelBtn"
+            Margin="2"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
+            BorderThickness="0"
+            Click="DelBtn_Click"
+            Content="Remove"
+            Foreground="{DynamicResource {x:Static adonisUi:Brushes.ErrorBrush}}"
+            Visibility="Collapsed" />
+    </Grid>
+</models:AutoWrapUserControl>

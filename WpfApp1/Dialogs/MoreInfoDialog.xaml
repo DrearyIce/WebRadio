@@ -1,0 +1,32 @@
+﻿<models:CustomDialog
+    x:Class="WpfApp1.Dialogs.MoreInfoDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:adonisControls="clr-namespace:AdonisUI.Controls;assembly=AdonisUI"
+    xmlns:adonisUi="clr-namespace:AdonisUI;assembly=AdonisUI"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WpfApp1.Dialogs"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="clr-namespace:WpfApp1.Models"
+    mc:Ignorable="d">
+    <StackPanel TextBlock.Foreground="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}">
+        <TextBlock
+            x:Name="title"
+            HorizontalAlignment="Center"
+            FontFamily="{StaticResource SFPro}"
+            FontSize="24"
+            TextTrimming="CharacterEllipsis" />
+        <Border Height="10" />
+        <TextBox
+            x:Name="Info"
+            Width="300"
+            HorizontalAlignment="Center"
+            VerticalScrollBarVisibility="Visible" />
+        <Border Height="10" />
+        <Button
+            x:Name="okbtn"
+            Padding="8,6"
+            Click="okbtn_Click"
+            Content="OK" />
+    </StackPanel>
+</models:CustomDialog>

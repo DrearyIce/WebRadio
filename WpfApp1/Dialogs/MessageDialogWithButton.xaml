@@ -1,0 +1,28 @@
+﻿<models:CustomDialog
+    x:Class="WpfApp1.Dialogs.MessageDialogWithButton"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:AdonisUI="clr-namespace:AdonisUI;assembly=AdonisUI"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WpfApp1.Dialogs"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="clr-namespace:WpfApp1.Models"
+    mc:Ignorable="d">
+    <Grid>
+
+        <ScrollViewer d:Background="{DynamicResource {x:Static AdonisUI:Brushes.Layer3BackgroundBrush}}" TextBlock.Foreground="{DynamicResource {x:Static AdonisUI:Brushes.ForegroundBrush}}">
+            <StackPanel>
+                <TextBlock
+                    x:Name="Title"
+                    Margin="10"
+                    FontSize="20"
+                    Text="" />
+                <StackPanel>
+                    <TextBlock x:Name="Message" FontFamily="{StaticResource SFPro}" />
+                </StackPanel>
+                <Grid x:Name="ButtonGrid" />
+            </StackPanel>
+        </ScrollViewer>
+
+    </Grid>
+</models:CustomDialog>

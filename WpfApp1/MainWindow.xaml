@@ -1,0 +1,194 @@
+﻿<adonisControls:AdonisWindow
+    x:Class="WpfApp1.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Controls="clr-namespace:WpfApp1.Controls"
+    xmlns:adonisControls="clr-namespace:AdonisUI.Controls;assembly=AdonisUI"
+    xmlns:adonisUi="clr-namespace:AdonisUI;assembly=AdonisUI"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WpfApp1"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="WebRadio"
+    Width="853"
+    Height="594"
+    Background="{DynamicResource {x:Static adonisUi:Brushes.Layer0BackgroundBrush}}"
+    FontFamily="{StaticResource NewYork}"
+    IconVisibility="Collapsed"
+    PlaceTitleBarOverContent="True"
+    TitleBarBackground="Transparent"
+    TitleVisibility="Collapsed"
+    mc:Ignorable="d" Icon="/WebRadio.ico">
+
+
+
+    <adonisControls:AdonisWindow.Style>
+        <Style BasedOn="{StaticResource {x:Type adonisControls:AdonisWindow}}" TargetType="adonisControls:AdonisWindow">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding IsTitleBarVisible}" Value="False">
+                    <Setter Property="IconVisibility" Value="Collapsed" />
+                    <Setter Property="TitleVisibility" Value="Collapsed" />
+                    <Setter Property="TitleBarContent">
+                        <Setter.Value>
+                            <Grid>
+                                <StackPanel Margin="{adonisUi:Space 2}" Orientation="Horizontal">
+                                    <ContentControl
+                                        Height="20"
+                                        Focusable="False"
+                                        UseLayoutRounding="True">
+                                        <ContentControl.Style>
+                                            <Style TargetType="ContentControl">
+                                                <Setter Property="ContentTemplate" Value="{DynamicResource {x:Static adonisUi:Icons.AdonisUIFull}}" />
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding IsDark, RelativeSource={RelativeSource AncestorType=local:MainWindow}}" Value="True">
+                                                        <Setter Property="ContentTemplate" Value="{DynamicResource {x:Static adonisUi:Icons.AdonisUIDarkFull}}" />
+                                                        <Setter Property="Foreground" Value="White" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </ContentControl.Style>
+                                    </ContentControl>
+                                </StackPanel>
+                            </Grid>
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </adonisControls:AdonisWindow.Style>
+
+    <adonisControls:AdonisWindow.TitleBarContent>
+        <Grid />
+    </adonisControls:AdonisWindow.TitleBarContent>
+
+    <Grid x:Name="grid" Margin="0,0,0,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition x:Name="MenuColumn" Width="240" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid
+            x:Name="MConent"
+            Grid.RowSpan="2"
+            Grid.Column="1"
+            Background="{DynamicResource {x:Static adonisUi:Brushes.Layer0BorderBrush}}">
+            <Border
+                Height="50"
+                VerticalAlignment="Top"
+                Background="{DynamicResource {x:Static adonisUi:Brushes.Layer0BorderBrush}}" />
+            <TextBlock
+                x:Name="MenuTitle"
+                Margin="20,12,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                FontFamily="{StaticResource NewYork}"
+                FontSize="32"
+                FontWeight="Bold"
+                Foreground="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}"
+                Text="Pins" />
+            <Frame
+                x:Name="MainFrame"
+                Margin="0,50,0,80"
+                NavigationUIVisibility="Hidden"
+                Source="/Pages/PinsPage.xaml" />
+        </Grid>
+
+        <Grid
+            Grid.Row="1"
+            Grid.Column="1"
+            WindowChrome.IsHitTestVisibleInChrome="True">
+            <Border Background="{DynamicResource {x:Static adonisUi:Brushes.Layer1HighlightBrush}}" />
+            <Border
+                Height="2"
+                Margin="0,-2,0,-2"
+                VerticalAlignment="Top"
+                Background="{DynamicResource {x:Static adonisUi:Brushes.Layer1HighlightBorderBrush}}" />
+            <Controls:ControlBar
+                x:Name="controlbar"
+                Height="80"
+                WindowChrome.IsHitTestVisibleInChrome="True" />
+        </Grid>
+
+        <Border Grid.RowSpan="2" Background="{DynamicResource {x:Static adonisUi:Brushes.Layer0BackgroundBrush}}" />
+        <Border Grid.RowSpan="2" Background="{DynamicResource {x:Static adonisUi:Brushes.Layer1BackgroundBrush}}" />
+        <GridSplitter
+            Grid.RowSpan="2"
+            Grid.Column="0"
+            Width="2"
+            HorizontalAlignment="Right"
+            Background="{DynamicResource {x:Static adonisUi:Brushes.Layer1BorderBrush}}"
+            DragIncrement="1" />
+        <Grid Grid.RowSpan="2" Margin="16">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid>
+                <TextBlock
+                    Padding="10"
+                    HorizontalAlignment="Center"
+                    FontSize="24"
+                    Foreground="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}"
+                    Text="WEB RADIO" />
+            </Grid>
+            <Border
+                Height="2"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Bottom"
+                Background="{DynamicResource {x:Static adonisUi:Brushes.Layer1BorderBrush}}" />
+            <ListBox
+                x:Name="MainMenu"
+                Grid.Row="1"
+                Margin="8,0"
+                SelectionChanged="MainMenu_SelectionChanged">
+                <ListBoxItem HorizontalContentAlignment="Stretch" IsEnabled="False" />
+                <ListBoxItem IsSelected="True">
+                    <Controls:NavItem Title="Pins" Icon="􀎦" />
+                </ListBoxItem>
+                <ListBoxItem>
+                    <Controls:NavItem Title="New" Icon="􀕮" />
+                </ListBoxItem>
+                <ListBoxItem>
+                    <Controls:NavItem Title="Library" Icon="􀏭" />
+                </ListBoxItem>
+            </ListBox>
+
+            <StackPanel Grid.Row="2">
+                <ListBox
+                    x:Name="ASetMenu"
+                    Grid.Row="2"
+                    Margin="8,0"
+                    SelectionChanged="ASetMenu_SelectionChanged">
+                    <ListBoxItem>
+                        <Controls:NavItem Title="Settings" Icon="􀍟" />
+                    </ListBoxItem>
+                    <ListBoxItem>
+                        <Controls:NavItem Title="About" Icon="􀅴" />
+                    </ListBoxItem>
+                </ListBox>
+            </StackPanel>
+        </Grid>
+
+        <Grid
+            x:Name="mainEmbControlPlacement"
+            Grid.RowSpan="2"
+            Grid.ColumnSpan="2" />
+
+        <Controls:PlayerElement x:Name="mainPlayer" d:IsHidden="True" />
+        <Controls:DialogPlacement
+            x:Name="mainDialogPlacement"
+            Grid.RowSpan="2"
+            Grid.ColumnSpan="2"
+            d:IsHidden="True" />
+        <Controls:NotificationPlacement
+            x:Name="mainNotificationPlacement"
+            Grid.RowSpan="2"
+            Grid.ColumnSpan="2"
+            d:IsHidden="True" />
+
+    </Grid>
+</adonisControls:AdonisWindow>
