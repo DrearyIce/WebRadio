@@ -55,7 +55,10 @@ namespace WpfApp1.Controls
             InitializeComponent();
             aminWidth = 320;
             station = _station;
-            DelBtn.Visibility = Visibility.Visible;
+            Loaded += (s, e) =>
+            {
+                DelBtn.Visibility = Visibility.Visible;
+            };
         }
 
         private void RippleHost_MouseDown(object sender, MouseButtonEventArgs e)

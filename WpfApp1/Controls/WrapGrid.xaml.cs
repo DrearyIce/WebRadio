@@ -77,7 +77,7 @@ namespace WpfApp1.Controls
         public List<object> Children
         {
             get { return (List<object>)GetValue(ChildrenProperty); }
-            set { SetValue(ChildrenProperty, value); ReplaceControls(true); }
+            set { SetValue(ChildrenProperty, value); if (value.Count == 0) { ContentGrid.Children.Clear(); } ReplaceControls(true); }
         }
 
         // Using a DependencyProperty as the backing store for Children.  This enables animation, styling, binding, etc...

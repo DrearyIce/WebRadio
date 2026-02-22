@@ -43,7 +43,7 @@ namespace WpfApp1.Controls
             grouptitle.Text = App.Groups?[groupindex].Name;
             for (int i = 0; i < App.Groups?[groupindex]?.Stations?.Count; i++)
             {
-                var card = new RadioCard(App.Groups?[groupindex].Stations[i]);
+                var card = new RadioCard(App.Groups?[groupindex].Stations[i],true);
                 card.OnDelete += async (s, e) => {
                     var sta = (s as RadioCard).station;
                     var result = await App.GetMainWindow?.mainDialogPlacement.Show(new MessageDialogWithButton($"Delete {sta.Name} ?", "", ["Cancel", "Delete"]));

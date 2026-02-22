@@ -19,6 +19,7 @@ namespace WpfApp1.Pages
         private void LibraryPage_Loaded(object sender, System.Windows.RoutedEventArgs e)
         {
             LoadGroups();
+            LoadRecently();
         }
 
         private async void editgroups_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -54,6 +55,7 @@ namespace WpfApp1.Pages
         public void LoadRecently()
         {
             List<object> controls = new List<object>();
+            controls = recent.Children;
             for (int i = 0; i < 10; i++)
             {
                 try
@@ -74,7 +76,6 @@ namespace WpfApp1.Pages
 
         public void Reload()
         {
-            LoadRecently();
             LoadGroups();
         }
     }
