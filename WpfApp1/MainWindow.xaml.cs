@@ -128,9 +128,12 @@ namespace WpfApp1
                 switch ((sender as ListBox)?.SelectedIndex) 
                 {
                     case 0:
-                        MainFrame.Navigate(new SettingsPage());
+                        MainFrame.Navigate(new ImportPage());
                         break;
                     case 1:
+                        MainFrame.Navigate(new SettingsPage());
+                        break;
+                    case 2:
                         MainFrame.Navigate(new AboutPage());
                         break;
                 }

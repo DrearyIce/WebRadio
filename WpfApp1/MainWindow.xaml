@@ -13,11 +13,12 @@
     Height="594"
     Background="{DynamicResource {x:Static adonisUi:Brushes.Layer0BackgroundBrush}}"
     FontFamily="{StaticResource NewYork}"
+    Icon="/WebRadio.ico"
     IconVisibility="Collapsed"
     PlaceTitleBarOverContent="True"
     TitleBarBackground="Transparent"
     TitleVisibility="Collapsed"
-    mc:Ignorable="d" Icon="/WebRadio.ico">
+    mc:Ignorable="d">
 
 
 
@@ -163,6 +164,9 @@
                     Grid.Row="2"
                     Margin="8,0"
                     SelectionChanged="ASetMenu_SelectionChanged">
+                    <ListBoxItem>
+                        <Controls:NavItem Title="Import" Icon="􀈄" />
+                    </ListBoxItem>
                     <ListBoxItem>
                         <Controls:NavItem Title="Settings" Icon="􀍟" />
                     </ListBoxItem>
